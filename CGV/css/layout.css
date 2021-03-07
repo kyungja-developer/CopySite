@@ -1,0 +1,445 @@
+*{margin:0; padding:0;}
+li{list-style:none;}
+a{text-decoration:none; color:black;}
+.clearfix::after{content:""; display:block; clear:both;}
+
+body{
+	background-color:#fdfcf0;}
+
+.wrap{
+	width:980px;
+	margin:0 auto;}
+
+/* header ______________________________________*/
+header{
+	width:100%;
+	height:150px;
+	background-color:blue;
+	background:url("../img/bg_header.gif") repeat-x;
+	}
+
+.top{
+	width:100%;
+	height:30px;
+	background-color:#fdfcf0;}
+
+.top li{
+	float:left;
+	font-size:11px;
+	font-weight:600;
+	line-height:30px;
+	text-align:center;}
+
+.top-left ul{
+	float:left;}
+
+.top-left li{
+	border-left:1px solid lightgray;
+	padding-left:10px;
+	margin-right:10px;}
+.top-left li:nth-child(4){
+	border-right:1px solid lightgray;
+	padding-right:10px;}
+.top-left li:nth-child(4) a{
+	color:#cc6666;}
+
+.top-left img{
+	position:relative;
+	top:5px;}
+
+
+.top-right ul{
+	float:right;
+	position:relative;
+	top:-30px;}
+
+.top-right li{position:relative;}
+.top-right li:not(:last-child)::after{
+	content:"";
+	display:block;
+	width:1px;
+	height:10px;
+	background-color:lightgray;
+	position:absolute;
+	top:50%;
+	margin-top:-5px;
+	right:0;
+	}
+.top-right li a{
+	display:block;
+	padding:0 10px;}
+.top-right li a:nth-child(7){
+	padding-right:0;}
+
+/* header bottom ______________________________________*/
+.bottom{
+	width:100%;
+	height:120px;
+	position:relative;}
+
+.b-left{
+	float:left;
+	margin-top:30.5px;
+	margin-left:10px;
+}
+.b-center{
+	float:left;
+	width:400px;
+	position:absolute;
+	left:calc(50% - 200px);
+	text-align:center;
+	top:50%;
+	transform:translateY(-50%);
+}
+.b-center li{
+	float:left;
+	width:73px;
+	text-align:left;
+	margin-right:20px;
+	font-size:20px;
+	font-weight:600;}
+.b-center li:nth-child(4){
+	width:120px;
+	margin-right:0;}
+
+.b-right{
+	float:left;
+	width:170px;
+	position:absolute;
+	right:30px;
+	top:17px;
+	}
+.oil,
+.search{
+	text-align:center;}
+
+.oil{
+	position:relative;
+	left:10px;
+	width:140px;
+	height:42px;
+	margin-bottom:4px;
+	background-color:#fef8dc;}
+
+.b-right input{
+	width:120px;
+	height:24px;
+	margin:0;
+	box-sizing:border-box;
+	}
+.b-right button{
+	height:24px;
+	width:40px;
+	background-color:red;
+	color:white;
+	cursor:pointer;
+	border:0;
+	position:relative;
+	left:-7px;
+	top:2px;
+	margin:0;
+	z-index:2;
+	}
+
+/* header끝______________________________________*/
+
+/* side ______________________________________*/
+
+#side{
+	position:sticky;
+	top:10px;
+	z-index:3;}
+
+.side-move{
+	margin-top:10px;
+	width:110px;
+	height:100%;
+	position:absolute;
+	right:calc(50% - 610px);
+	}
+
+.side-wrap{
+	width:100%;
+	border:4px solid red;
+	border-radius:10px;
+	background-color:#fdfcf0;
+	display:black;
+	text-align:center;
+	padding:10px 0;}
+
+/* side끝 ______________________________________*/
+
+
+
+/* main-slide ______________________________________*/
+#main-slide{
+	width:100%;
+	height:450px;
+	background:url("../img/bg_c_bricks.png");
+	}
+
+.slide-contents{
+	width:980px;
+	margin:0 auto;}
+
+.slide-group{
+	float:left;
+	width:980px;
+	position:relative;
+	height:450px;}
+
+.slide{
+	position:absolute;}
+
+/* main-slide끝 ______________________________________*/
+
+
+/* movie ______________________________________*/
+#movie > div:nth-child(1){
+	height:100px;
+	}
+
+#movie div:nth-child(1) img{
+	position:relative;
+	top:40px;
+	left:calc(50% - 203px);
+	}
+.video{
+	width:730px;
+	height:388px;
+	background-color:#101010;
+	float:left;
+	margin-right:10px;}
+
+video{
+	position:relative;
+	left:50%;
+	top:50%;
+	transform:translateY(-50%) translateX(-50%);
+	}
+
+
+/* movie끝 ______________________________________*/
+
+
+/* event ______________________________________*/
+.ev-top > div:nth-child(1){
+	height:100px;
+	}
+
+.ev-top > div:nth-child(1) img{
+	position:relative;
+	top:40px;
+	left:calc(50% - 71px);
+	}
+
+.ribbon{
+	width:100%;
+	height:39px;
+	margin-bottom:20px;}
+
+.inner-ribbon{
+	width:548px;
+	position:relative;
+	left:calc(50% - 274px);}
+
+.inner-ribbon a{
+	background-color:#e71a0f;}
+
+.ribbon li{
+	float:left;
+	position:relative;}
+
+
+/*여기 어떻게 쉽게 선택할 수 있을지 질문__________________*/
+.ribbon li:nth-child(2)::after,
+.ribbon li:nth-child(3)::after,
+.ribbon li:nth-child(4)::after,
+.ribbon li:nth-child(5)::after{
+	content:"";
+	display:block;
+	width:1px;
+	height:14px;
+	background-color:white;
+	position:absolute;
+	top:50%;
+	margin-top:-7px;
+	right:0;
+	}
+
+.ribbon li a{
+	display:block;
+	color:white;
+	font-size:16px;
+	font-weight:600;
+	line-height:39px;
+	padding:0 10px;}
+
+.ad-1 li{
+	float:left;
+	margin-right:10px;}
+
+hr{
+	border:2px solid black;
+	margin-top:30px;
+	margin-bottom:30px;}
+
+.ev-bottom li:nth-child(2){
+	float:left;
+	margin-right:8px;}
+.ev-bottom li:nth-child(1),
+.ev-bottom li:nth-child(3){
+	float:left;
+	margin-right:8px;
+	padding:3px 3px 1px 3px;
+	border:3px solid black;}
+
+.ev-bottom li:nth-child(3){
+	margin-right:0;}
+
+.ev-bottom > div{
+	padding-bottom:10px;
+	border-bottom:1px solid black;}
+
+.infomation{overflow:hidden;}
+.info-1 img{
+	margin-right:5px;}
+
+.info-1{
+	font-size:18px;
+	float:left;
+	margin-right:10px;}
+
+.info-2{
+	display:block;
+	font-size:14px;
+	color:gray;
+	float:left;
+	position:relative;
+	margin-top:3px;
+	}
+
+.info-move{
+	width:870px;
+	position:absolute;
+	}
+
+
+.info-2 span{
+	display:block;
+	font-size:14px;
+	color:gray;
+	float:right;}
+
+/* event끝 ______________________________________*/
+
+
+/* ad ______________________________________*/
+
+#ad{margin-top:50px;
+	border-bottom:1px solid black;
+	margin-bottom:40px;}
+
+.ad-wrap{
+	background:url("../img/bg_temp_foot_banner.gif") repeat-x;
+	background-color:#dbeaff;}
+
+.logos li{
+	float:left;
+	margin-top:30px;
+	margin-bottom:20px;
+	margin-right:29.5px;}
+
+.logos li:last-child{
+	margin-right:0;}
+
+
+/* ad끝 ______________________________________*/
+
+
+/* footer ______________________________________*/
+footer{						/*배경사진크기 왜이러나?*/
+	width:100%;
+	height:283px;
+	background:url("../img/bg_footer_com.gif");}
+
+.inner li{
+	float:left;
+	font-size:14px;
+	position:relative;
+	letter-spacing:-2px;}
+
+.inner li:not(:last-child)::after{
+	content:"";
+	display:block;
+	width:1px;
+	height:10px;
+	background-color:gray;
+	position:absolute;
+	right:0px;
+	top:calc(50% - 5px);
+	}
+
+.inner li a{
+	display:block;
+	padding:0 8px;}
+
+.inner-bottom{margin-top:20px;}
+
+.inner-bottom img, .inner-bottom p{
+	float:left;
+	line-height:20px;}
+
+.inner-bottom p{
+	font-size:12px;
+	color:gray;
+	margin-left:20px;
+	letter-spacing:-0.5px;}
+
+.inner-bottom p a{
+	border:1px solid gray;
+	border-radius:4px;
+	padding:2px 4px;
+	font-size:11px;}
+
+.under-logo li{
+	float:left;
+	margin-right:5px;
+	position:relative;
+	left:-70px;
+	top:5px;}
+
+.right-site{
+	float:right;
+	position:relative;
+	top:-55px;}
+
+select{	/*계열사 투뎁스 어떻게하나?*/
+	margin-right:5px;
+	width:150px;
+	height:30px;
+	background-color:#fdfcf0;}
+
+optgroup{
+	background-color:white;}
+
+.right-site select, .btn{
+	float:left;}
+
+.btn{
+	display:block;
+	background-color:gray;
+	color:white;
+	width:30px;
+	height:30px;
+	line-height:30px;
+	font-size:12px;
+	text-align:center;}
+
+.right-site > span{
+	font-size:11px;
+	display:block;
+	float:right;
+	margin-top:5px;}
+
+/*footer끝 __________________________*/
