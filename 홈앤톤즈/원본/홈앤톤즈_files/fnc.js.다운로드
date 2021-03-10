@@ -1,0 +1,15 @@
+/**
+ * 글자수(바이트 체크)
+ * @param oid : 글자를 받을 Textarea ID
+ * @param tid : 바이트 체크된 값 리턴될 엘리먼트 ID
+ */
+function checkTextarea(oid,len){
+    var textLength = $(oid).val().length;
+ 
+    // 제한된 길이보다 입력된 길이가 큰 경우 제한 길이만큼만 자르고 텍스트영역에 넣음
+    if (textLength > len) {
+        $(oid).val($(oid).val().substr(0, len));
+        alert("글자수가 500글자를 넘겼습니다.");
+        $(oid).focus();
+    }
+};

@@ -1,0 +1,157 @@
+var searchTxt = "";
+
+$(document).ready(function(){
+	// gnb hover 했을때
+	$(".gnb li").hover(function(){
+		$(this).find(".lnb").stop().fadeIn("fast");
+	}, function(){
+		$(this).find(".lnb").stop().fadeOut("fast");
+	});
+	
+	// header 돋보기 click시
+	$(".header .topSearch").click(function(){
+		if ( !$(this).hasClass("on") ){
+			$(this).addClass("on");
+			$(".topSearchWrap").stop().slideDown("fast");
+		} else {
+			$(this).removeClass("on");
+			$(".topSearchWrap").stop().slideUp("fast", function(){
+				$(this).find("dt input").val("");
+			});
+		}
+	});
+	
+	searchTxt = $("input[name='searchKind_radio']:checked + label").text();
+	$("input[name='searchKind_radio']").change(function(){
+		if ( !$(this).is("checked") ){
+			searchTxt = $(this).next().text();
+			$(".searchArea ul").removeClass("on").hide();
+			$(".searchArea ul").eq( $(this).parent().index() ).addClass("on").stop().fadeIn("fast");
+			$(".topSearchCon dt input").attr("placeholder", $(".searchArea ul").eq( $(this).parent().index() ).data("txt"));
+		}
+	});
+
+	$(".topSearchCon dt a").click(function(){
+		headerSearch(searchTxt)
+	});
+	
+	$(".topSearchCon dt input").keypress(function(e) { 
+	    if (e.keyCode == 13){
+			headerSearch(searchTxt)
+	    }    
+	});
+
+	$(".topSearchCon dd ul li").click(function(){
+		var Integrated = $(this).text(),
+		param = encodeURIComponent(Integrated);
+
+		if ( searchTxt == "상품으로" ){
+			location.href="/etc/search.do?Integrated="+param;
+		} else {
+			location.href="/color/colorchart/search.do?sText="+param;
+		}
+	});
+	
+	// header 돋보기 popup 닫기
+	$(".topSearchCon .xBtn").click(function(){
+		$(".header .topSearch").removeClass("on");
+		$(".topSearchWrap").stop().slideUp("fast", function(){
+			$(this).find("dt input").val("");
+		});
+	});
+	
+	// footer 패밀리사이트
+	$(".footer .last select").change(function(){
+		if ( $(this).val() != "" ){
+			window.open( $(this).val() );
+		}
+	});
+
+	// 탑버튼
+	$(".floating .topBtn").click(function(){
+		$("html, body").stop().animate({scrollTop:0}, "fast");
+	});
+});
+
+$(window).scroll(function(){
+	var footerScrollTop = $(".footer").offset().top - $(window).height();
+	
+	// window 가로스크롤 이동시
+	$(".headerWrap").css("left", (0 - $(this).scrollLeft()));
+	
+	// top버튼
+	if ( $(this).scrollTop() > 0 ){
+		if ( !$(".floating").hasClass("active") ){
+			$(".floating").stop().fadeIn("fast");
+			$(".floating").addClass("active");
+		}
+
+		if ( $(this).scrollTop() >= footerScrollTop ){
+			$(".floating").addClass("on");
+		} else {
+			$(".floating").removeClass("on");
+		}
+	} else {
+		if ( $(".floating").hasClass("active") ){
+			$(".floating").stop().fadeOut("fast");
+			$(".floating").removeClass("active");
+		}
+	}
+});
+
+function headerSearch(kind){
+	var Integrated = $(".topSearchCon dt input").val(),
+		param = encodeURIComponent(Integrated);
+	if ( Integrated != "" || Integrated != " " ){
+		if ( kind == "상품으로" ){
+			location.href="/etc/search.do?Integrated="+param;
+		} else {
+			location.href="/color/colorchart/search.do?sText="+param;
+		}
+	} else {
+		alert("검색어를 입력해 주세요");
+		$(".topSearchCon dt input").focus();
+	}
+}
+
+// popup open
+function popOpen(id){
+    $.lockBody();
+};
+
+// popup close
+function popClose(obj){
+    $.unlockBody();
+}
+
+// prevent body scroll
+var $docEl = $("html, body"),
+    $wrap = $(".wrap"),
+    $scrollTop;
+
+$.lockBody = function() {
+    if(window.pageYOffset) {
+        $scrollTop = window.pageYOffset;
+        $wrap.css({
+            top: - ($scrollTop)
+        });
+    }
+    $docEl.css({
+        height: "100%",
+        overflow: "hidden"
+    });
+}
+
+$.unlockBody = function() {
+    $docEl.css({
+        height: "",
+        overflow: ""
+    });
+    $wrap.css({
+        top: ""
+    });
+    window.scrollTo(0, $scrollTop);
+    window.setTimeout(function () {
+        $scrollTop = null;
+    }, 0);
+}

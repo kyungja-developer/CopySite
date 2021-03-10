@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>::</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="swiper/css/swiper.css">
+<script src="js/jquery-3.4.1.js"></script>
+<script src="swiper/js/swiper.js"></script>
+</script>
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+.imgWrap{
+	background-color:pink;
+	height:100%;
+}
+</style>
+</head>
+<body>
+	<!-- 메인 비주얼 배너 -->
+	<div class="mainVisual swiper-container-fade swiper-container-horizontal" style="height: 842.458px;">
+		<ul class="swiper-wrapper">
+			<li class="swiper-slide" data-swiper-slide-index="0"><div class="imgWrap"><img src="img/01_visual.jpg" width="1920" height="849"></div></li>
+			<li class="swiper-slide" data-swiper-slide-index="1"><div class="imgWrap"><img src="img/02_visual.jpg" width="1920" height="849"></div></li>
+			<li class="swiper-slide" data-swiper-slide-index="2"><div class="imgWrap"><img src="img/03_visual.jpg" width="1920" height="849"></div></li>
+		</ul>
+		
+		<div class="swiperControlWrap">
+			<div class="swiper-pagination josefin swiper-pagination-fraction"><span class="swiper-pagination-current">1</span> / <span class="swiper-pagination-total">3</span></div>
+			<div class="swiper-time on"><span></span></div>
+			<div class="playStop"></div>
+		</div>
+
+		<div class="swiper-button-next custom_hover" data-hover="Next" tabindex="0" role="button" aria-label="Next slide"></div>
+		<div class="swiper-button-prev custom_hover" data-hover="Prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+
+	<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+
+	<script>
+	
+		var mainSwiper = new Swiper(".mainVisual", {            
+			effect: "fade",
+			loop: true,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+			},
+			
+			navigation: {
+				nextEl: ".mainVisual .swiper-button-next",
+				prevEl: ".mainVisual .swiper-button-prev",
+			},		
+			pagination: {
+				el: ".mainVisual .swiper-pagination",
+				type: "fraction"
+			},
+			on: {
+				init: function(){
+					$(".mainVisual .swiper-time").addClass("on");
+				}
+			}
+		});
+
+		var mainVisual_rato = $(window).width() * 0.4427;
+		$(".mainVisual").height( mainVisual_rato );
+	
+		mainSwiper.on("slideChangeTransitionStart", function (){
+			$(".mainVisual .swiper-time").removeClass("on");
+			if ( $(".mainVisual .swiper-slide").hasClass("firstNoAction") ){
+				$(".mainVisual .swiper-slide").removeClass("firstNoAction");
+			}
+		});
+	
+		mainSwiper.on("slideChangeTransitionEnd", function (){
+			$(".mainVisual .swiper-time").addClass("on");
+		});
+	
+		$(".mainVisual .playStop").click(function(){
+			if ( !$(this).hasClass("on") ){
+				mainSwiper.autoplay.stop();
+				$(this).addClass("on");
+				$(".mainVisual .swiper-time").removeClass("on");
+			} else {
+				mainSwiper.autoplay.start();
+				$(this).removeClass("on");
+				$(".mainVisual .swiper-time").addClass("on");
+			}
+		});
+
+	</script>
+</body>
+</html>
