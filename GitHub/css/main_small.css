@@ -1,0 +1,51 @@
+/* COMMON */
+.summary__title{
+    font-size: 34px !important;
+}
+.summary__description{
+    font-size: 22px;
+}
+
+
+/* FEATURE */
+.section--feature .tiles li{
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+/* WHERE IS */
+#map{
+    width: auto;/*100%면 안됨. 100%는 부모요소를 따라가는데
+    medium에서 inner에서 좌우 20px 여백을 추가해준 상태의 크기기 때문에
+    small에서 100%하면 크기에 문제생김!
+    그래서 가로를 auto로 초기화 해주는 것이다~*/
+    margin: 40px -20px 0 -20px;
+    border-left: none;
+    border-right: none;
+}
+
+
+/* PRICING */
+.section--pricing .card{
+    display: block;
+}
+.section--pricing .card .cell2{
+    border-left: none;
+    border-top: 1px solid #e5e5e5;
+}
+
+
+/* FOOTER */
+footer .site-links{
+    float: none;
+    display: block;
+    text-align:center;
+}
+footer .site-links:first-child{
+    margin-bottom: 20px;
+}
+footer .site-links li{
+    display: inline;/*글자처럼 취급하겠다!그래서 inline*/
+}
